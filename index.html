@@ -38,8 +38,8 @@
         }
 
         .carousel img {
-            width: 400px;
-            height: 300px;
+            width: 600px;
+            height: 800px;
             object-fit: cover;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
@@ -120,6 +120,12 @@
             const now = new Date();
             let diff = now - startDate;
 
+            if (diff < 0) {
+                // Se a data inicial ainda não chegou, mostra que vai começar
+                document.getElementById("timer").innerText = "Ainda não começou.";
+                return;
+            }
+
             const seconds = Math.floor(diff / 1000) % 60;
             const minutes = Math.floor(diff / (1000 * 60)) % 60;
             const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
@@ -134,6 +140,7 @@
         }
 
         setInterval(updateTimer, 1000);
+        updateTimer(); // roda já na carga da página
 
         const images = [
             "imgs/img1.jpg",
