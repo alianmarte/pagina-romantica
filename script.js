@@ -1,9 +1,14 @@
-
+// Data inicial do contador: 15/09/2024 21:30:00
 const startDate = new Date("2024-09-15T21:30:00");
 
 function updateTimer() {
   const now = new Date();
   const diff = now - startDate;
+
+  if (diff < 0) {
+    document.getElementById("timer").innerText = "O tempo ainda não começou.";
+    return;
+  }
 
   const seconds = Math.floor(diff / 1000) % 60;
   const minutes = Math.floor(diff / (1000 * 60)) % 60;
@@ -19,32 +24,33 @@ function updateTimer() {
 }
 
 setInterval(updateTimer, 1000);
-updateTimer();  // chama na hora pra não esperar 1s inicial
+updateTimer();
 
-// Corações caindo
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerText = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (2 + Math.random() * 3) + "s";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 5000);
-}, 300);
+// Carrossel 3D circular
+const carousel = document.querySelector(".carousel");
+const items = document.querySelectorAll(".carousel-item");
+const itemCount = items.length;
+const angle = 360 / itemCount;
+let currentIndex = 0;
 
-// Carrossel de imagens
-const images = [
-  "imgs/img1.jpg", "imgs/img2.jpg", "imgs/img3.jpg",
-  "imgs/img4.jpg", "imgs/img5.jpg", "imgs/img6.jpg",
-  "imgs/img7.jpg", "imgs/img8.jpg", "imgs/img9.jpg"
-];
-let current = 0;
-setInterval(() => {
-  current = (current + 1) % images.length;
-  document.getElementById("carousel-img").src = images[current];
-}, 3000);
+function rotateCarousel() {
+  const rotation = currentIndex * -angle;
+  carousel.style.transform = `translateZ(-288px) rotateY(${rotation}deg)`;
 
-// Loop do áudio com atraso
+  items.forEach((item, i) => {
+    item.classList.remove("active");
+    if (i === currentIndex) {
+      item.classList.add("active");
+    }
+  });
+
+  currentIndex = (currentIndex + 1) % itemCount;
+}
+
+rotateCarousel();
+setInterval(rotateCarousel, 3000);
+
+// Player loop com delay de 5s após a música acabar
 const audio = document.getElementById("audio");
 audio.addEventListener("ended", () => {
   setTimeout(() => {
