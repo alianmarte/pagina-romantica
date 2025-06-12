@@ -34,11 +34,10 @@ audio {
     width: 100%;
     outline: none;
     filter: invert(100%) brightness(150%);
-    /* torna o player branco sobre fundo preto/transparente */
 }
 
 .main-text {
-    margin-top: 70px; /* espaço para player fixo */
+    margin-top: 70px;
     text-align: center;
     font-size: 28px;
     user-select: none;
@@ -79,4 +78,24 @@ audio {
     line-height: 1.5;
     white-space: pre-line;
     user-select: none;
+}
+
+/* Corações caindo */
+.heart {
+    position: fixed;
+    top: -30px;
+    font-size: 24px;
+    pointer-events: none;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    user-select: none;
+    z-index: 9999;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
 }
