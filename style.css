@@ -61,15 +61,14 @@ body {
     position: fixed;
     top: -20px;
     font-size: 24px;
+    animation-name: fallSpin;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
     pointer-events: none;
     z-index: 9999;
     color: #fff;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    animation-name: fall;
-    animation-duration: 3s; /* padrão, será sobrescrito no JS */
-    transform-origin: center;
 }
+
 
 @keyframes fallSpin {
     0% {
