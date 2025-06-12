@@ -4,20 +4,22 @@ function updateTimer() {
     const now = new Date();
     let diff = now - startDate;
 
-    if (diff < 0) return;
+    if (diff < 0) {
+        document.getElementById("timer").innerText = "Ainda não começou!";
+        return;
+    }
 
     const seconds = Math.floor(diff / 1000) % 60;
     const minutes = Math.floor(diff / (1000 * 60)) % 60;
     const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
     const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-    // Cálculo aproximado (não considera dias exatos de cada mês)
     const years = Math.floor(totalDays / 365);
     const months = Math.floor((totalDays % 365) / 30);
     const days = (totalDays % 365) % 30;
 
     document.getElementById("timer").innerText =
-        `${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+        `${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos.`;
 }
 
 setInterval(updateTimer, 1000);
@@ -32,7 +34,6 @@ setInterval(() => {
     setTimeout(() => heart.remove(), 5000);
 }, 300);
 
-// Carrossel com 5s por imagem
 const images = [
     "imgs/img1.jpg", "imgs/img2.jpg", "imgs/img3.jpg",
     "imgs/img4.jpg", "imgs/img5.jpg", "imgs/img6.jpg",
@@ -48,5 +49,5 @@ const audio = document.getElementById("audio");
 audio.addEventListener("ended", () => {
     setTimeout(() => {
         audio.play();
-    }, 5000);
+    }, 3000);
 });
