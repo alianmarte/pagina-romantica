@@ -71,15 +71,16 @@ body {
     transform-origin: center;
 }
 
-@keyframes fall {
+@keyframes fallSpin {
     0% {
-        transform: translateX(0) translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
         opacity: 1;
     }
     100% {
-        transform: translateX(var(--x-move, 30px)) translateY(100vh) rotate(360deg);
+        transform: translateY(100vh) rotate(30deg);
         opacity: 0;
     }
 }
+
 
 
