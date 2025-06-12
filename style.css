@@ -8,24 +8,13 @@ body {
 }
 
 .player {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.7); /* preto transparente */
     color: #fff;
-    padding: 20px;
+    padding: 15px;
     display: flex;
-    flex-direction: column; /* organiza em coluna */
-    align-items: center;     /* centraliza horizontalmente */
-    justify-content: center;
-    gap: 10px;
-    text-align: center;
+    align-items: center;
+    gap: 15px;
 }
-
-.music-info {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-}
-
-
 
 .player strong {
     color: #fff;
@@ -43,17 +32,14 @@ body {
 }
 
 .carousel img {
-    width: 500px;
-    height: 500px;
+    width: 1080px;
+    height: 1080px;
     object-fit: cover;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     display: block;
     margin: 0 auto;
-    max-width: 90vw;
-    max-height: 90vw;
 }
-
 
 
 .love-time {
@@ -76,26 +62,21 @@ body {
     position: fixed;
     top: -20px;
     font-size: 24px;
-    animation: fall 3s linear forwards;
+    animation-name: fallSpin;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
     pointer-events: none;
     z-index: 9999;
     color: #fff;
-    /* adiciona uma rotação inicial aleatória */
-    transform-origin: center;
 }
 
-@keyframes fall {
+
+@keyframes fallSpin {
     0% {
-        transform: translateX(0) translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
         opacity: 1;
     }
-    100% {
-        /* cai pra baixo e também um pouco pra lado (esquerda ou direita) */
-        transform: translateX(30px) translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
     100% {
         transform: translateY(100vh) rotate(30deg);
         opacity: 0;
