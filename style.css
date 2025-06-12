@@ -75,14 +75,13 @@ body {
 }
 
 
-
 @keyframes fallSpin {
     0% {
         transform: translateY(0) rotate(0deg);
         opacity: 1;
     }
     100% {
-        transform: translateY(100vh) rotate(var(--rotation));
+        transform: translateY(100vh) rotate(30deg);
         opacity: 0;
     }
 }
