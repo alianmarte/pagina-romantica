@@ -41,13 +41,21 @@ audio.addEventListener("ended", () => {
 setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
+
+    // Decide aleatoriamente se cai pra esquerda ou direita
+    if (Math.random() < 0.5) {
+        heart.classList.add("left");
+    } else {
+        heart.classList.add("right");
+    }
+
     heart.innerText = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (2 + Math.random() * 3) + "s";
-    // heart.style.transform = `rotate(${Math.random() * 30 - 15}deg)`; // retirar essa linha
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 5000);
 }, 300);
+
 
 
 
