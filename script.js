@@ -1,8 +1,11 @@
+// Data inicial
 const startDate = new Date("2024-09-15T21:30:00");
 
+// Atualiza contador crescente
 function updateTimer() {
     const now = new Date();
-    const diff = now - startDate;
+    let diff = now - startDate;
+    if (diff < 0) diff = 0; // evitar negativo se antes da data inicial
 
     const seconds = Math.floor(diff / 1000) % 60;
     const minutes = Math.floor(diff / (1000 * 60)) % 60;
@@ -16,43 +19,50 @@ function updateTimer() {
     document.getElementById("timer").innerText =
         `${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
 }
-
 setInterval(updateTimer, 1000);
-updateTimer();
+updateTimer(); // roda ao carregar
 
+// Corações caindo
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}, 300);
+
+// Carrossel simples deslizando para a esquerda
 const images = [
     "imgs/img1.jpg", "imgs/img2.jpg", "imgs/img3.jpg",
     "imgs/img4.jpg", "imgs/img5.jpg", "imgs/img6.jpg",
     "imgs/img7.jpg", "imgs/img8.jpg", "imgs/img9.jpg"
 ];
 
-let currentIndex = 0;
+let current = 0;
+const carouselImg = document.getElementById("carousel-img");
 
-function showImage(index) {
-    const imgs = document.querySelectorAll(".carousel img");
-    imgs.forEach((img, i) => {
-        img.classList.remove("active");
-        if (i === index) {
-            img.classList.add("active");
-        }
-    });
+function slideNext() {
+    carouselImg.style.transition = "transform 0.6s ease";
+    carouselImg.style.transform = "translateX(-100%)";
+
+    setTimeout(() => {
+        current = (current + 1) % images.length;
+        carouselImg.src = images[current];
+        carouselImg.style.transition = "none";
+        carouselImg.style.transform = "translateX(100%)";
+
+        setTimeout(() => {
+            carouselImg.style.transition = "transform 0.6s ease";
+            carouselImg.style.transform = "translateX(0)";
+        }, 50);
+    }, 600);
 }
 
-window.onload = () => {
-    const carousel = document.querySelector(".carousel");
-    images.forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        carousel.appendChild(img);
-    });
-    showImage(currentIndex);
+setInterval(slideNext, 3000);
 
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % images.length;
-        showImage(currentIndex);
-    }, 3000);
-};
-
+// Loop do áudio com intervalo de 5s após terminar
 const audio = document.getElementById("audio");
 audio.addEventListener("ended", () => {
     setTimeout(() => {
