@@ -44,11 +44,9 @@ setInterval(() => {
     heart.innerText = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (2 + Math.random() * 3) + "s";
-    heart.style.transformOrigin = "center";
-    // Animação CSS para girar e cair inclinados
-    heart.style.animationName = "fallSpin";
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 5000);
 }, 300);
+
 
 
