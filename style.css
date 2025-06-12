@@ -32,18 +32,17 @@ body {
 }
 
 .carousel img {
-    width: 1080px;
-    height: 1080px;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    display: block;
-    margin: 0 auto;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
 }
 
 .love-time {
     text-align: center;
-    font-size: 26px;
+    font-size: 20px;
     margin: 30px 0;
     color: #fff;
 }
@@ -52,7 +51,7 @@ body {
     text-align: center;
     max-width: 800px;
     margin: 40px auto;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.6;
     color: #fff;
 }
@@ -61,62 +60,15 @@ body {
     position: fixed;
     top: -20px;
     font-size: 24px;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
+    animation: fall linear;
     pointer-events: none;
     z-index: 9999;
     color: #fff;
 }
 
-/* Animação caindo girando para a direita e indo para a direita */
-@keyframes fallSpinRight {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(30vw, 100vh) rotate(30deg);
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
         opacity: 0;
     }
 }
-
-/* Animação caindo girando para a esquerda e indo para a esquerda */
-@keyframes fallSpinLeft {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-30vw, 100vh) rotate(-30deg);
-        opacity: 0;
-    }
-}
-
-/* Animação caindo reto sem girar */
-@keyframes fallSpinStraight {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(0, 100vh) rotate(0deg);
-        opacity: 0;
-    }
-}
-
-/* Classes que aplicam as animações conforme a direção */
-.heart.right {
-    animation-name: fallSpinRight;
-}
-
-.heart.left {
-    animation-name: fallSpinLeft;
-}
-
-.heart.straight {
-    animation-name: fallSpinStraight;
-}
-
-
-
-
