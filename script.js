@@ -14,7 +14,7 @@ function updateTimer() {
     const days = (daysTotal % 365) % 30;
 
     document.getElementById("timer").innerText =
-        `${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+        ${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos;
 }
 
 setInterval(updateTimer, 1000);
@@ -42,20 +42,9 @@ setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.innerText = "❤️";
-
-    // posição horizontal aleatória em vw
     heart.style.left = Math.random() * 100 + "vw";
-
-    // duração da animação entre 2s e 5s
-    const duration = 2 + Math.random() * 3;
-    heart.style.animationDuration = duration + "s";
-
-    // direção horizontal aleatória: positiva ou negativa (pra esquerda ou direita)
-    const direction = Math.random() < 0.5 ? -1 : 1;
-    heart.style.setProperty("--direction", direction);
-
+    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+    // heart.style.transform = rotate(${Math.random() * 30 - 15}deg); // retirar essa linha
     document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), duration * 1000);
+    setTimeout(() => heart.remove(), 5000);
 }, 300);
-
