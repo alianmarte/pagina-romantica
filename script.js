@@ -25,47 +25,38 @@ function updateTimer() {
 setInterval(updateTimer, 1000);
 updateTimer();
 
-const carousel = document.querySelector(".carousel");
-const items = document.querySelectorAll(".carousel-item");
-const itemCount = items.length;
-const angle = 360 / itemCount;
-let currentIndex = 0;
+const images = [
+  "imgs/img1.jpg", "imgs/img2.jpg", "imgs/img3.jpg",
+  "imgs/img4.jpg", "imgs/img5.jpg", "imgs/img6.jpg",
+  "imgs/img7.jpg", "imgs/img8.jpg", "imgs/img9.jpg"
+];
 
-function setCarouselPositions() {
-  const radius = 350; // distância do centro do círculo para as imagens
+let current = 0;
 
-  items.forEach((item, i) => {
-    const rotateY = i * angle;
-    item.style.transform = `rotateY(${rotateY}deg) translateZ(${radius}px)`;
-    item.style.transition = "transform 1s ease";
-    item.style.opacity = "0.4";
-    item.style.filter = "blur(3px)";
-  });
-}
-
-function rotateCarousel() {
-  const rotation = currentIndex * -angle;
-  carousel.style.transform = `translateZ(-${350}px) rotateY(${rotation}deg)`;
-  carousel.style.transition = "transform 1s ease";
-
-  items.forEach((item, i) => {
-    if (i === currentIndex) {
-      item.style.opacity = "1";
-      item.style.filter = "blur(0)";
-      item.style.zIndex = "10";
-    } else {
-      item.style.opacity = "0.4";
-      item.style.filter = "blur(3px)";
-      item.style.zIndex = "1";
+function showImage(index) {
+  const imgs = document.querySelectorAll(".carousel img");
+  imgs.forEach((img, i) => {
+    img.classList.remove("active");
+    if (i === index) {
+      img.classList.add("active");
     }
   });
-
-  currentIndex = (currentIndex + 1) % itemCount;
 }
 
-setCarouselPositions();
-rotateCarousel();
-setInterval(rotateCarousel, 3000);
+window.onload = () => {
+  const carouselDiv = document.querySelector(".carousel");
+  images.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    carouselDiv.appendChild(img);
+  });
+  showImage(current);
+
+  setInterval(() => {
+    current = (current + 1) % images.length;
+    showImage(current);
+  }, 3000);
+};
 
 const audio = document.getElementById("audio");
 audio.addEventListener("ended", () => {
