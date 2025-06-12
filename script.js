@@ -20,7 +20,7 @@ function updateTimer() {
 setInterval(updateTimer, 1000);
 
 const images = [
-    "imgs/img1.jpg", "imgs/img3.jpg",
+    "imgs/img1.jpg", "imgs/img2.jpg", "imgs/img3.jpg",
     "imgs/img4.jpg", "imgs/img5.jpg", "imgs/img6.jpg",
     "imgs/img7.jpg", "imgs/img8.jpg", "imgs/img9.jpg"
 ];
@@ -37,27 +37,13 @@ audio.addEventListener("ended", () => {
     }, 3000); // 3 segundos após acabar a música
 });
 
-// Coraçãozinho caindo continua legal
+// Coraçãozinho caindo continua igual
 setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
-
-    const directions = ['left', 'right', 'straight'];
-    const direction = directions[Math.floor(Math.random() * directions.length)];
-    heart.classList.add(direction);
-
     heart.innerText = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (2 + Math.random() * 3) + "s";
     document.body.appendChild(heart);
-
     setTimeout(() => heart.remove(), 5000);
 }, 300);
-
-
-
-
-
-
-
-
