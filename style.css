@@ -61,18 +61,15 @@ body {
     position: fixed;
     top: -20px;
     font-size: 24px;
-    animation-name: fallSpin;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    animation-iteration-count: 1;
     pointer-events: none;
     z-index: 9999;
     color: #fff;
 }
 
-
-
-@keyframes fallSpin {
+/* Animação girando para a direita */
+@keyframes fallSpinRight {
     0% {
         transform: translateY(0) rotate(0deg);
         opacity: 1;
@@ -82,6 +79,29 @@ body {
         opacity: 0;
     }
 }
+
+/* Animação girando para a esquerda */
+@keyframes fallSpinLeft {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(-30deg);
+        opacity: 0;
+    }
+}
+
+/* Classe para o coração cair girando para a direita */
+.heart.right {
+    animation-name: fallSpinRight;
+}
+
+/* Classe para o coração cair girando para a esquerda */
+.heart.left {
+    animation-name: fallSpinLeft;
+}
+
 
 
 
