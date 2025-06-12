@@ -1,30 +1,24 @@
 body {
     margin: 0;
     padding: 0;
-    background: #000; /* preto */
-    color: #fff; /* letras brancas */
+    background: #fff0f5;
     font-family: 'Times New Roman', serif;
     overflow-x: hidden;
 }
 
 .player {
-    background: rgba(0, 0, 0, 0.7); /* preto transparente */
-    color: #fff;
+    background: #1db954;
+    color: white;
     padding: 15px;
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.player strong {
-    color: #fff;
-}
-
 .main-text {
     text-align: center;
     font-size: 28px;
     margin: 30px 0;
-    color: #fff;
 }
 
 .carousel {
@@ -32,24 +26,16 @@ body {
 }
 
 .carousel img {
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
+    width: 80%;
+    max-width: 400px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    display: block;
-    margin: 0 auto;
-    max-width: 90vw;
-    max-height: 90vw;
 }
-
-
 
 .love-time {
     text-align: center;
     font-size: 20px;
     margin: 30px 0;
-    color: #fff;
 }
 
 .custom-text {
@@ -58,30 +44,20 @@ body {
     margin: 40px auto;
     font-size: 18px;
     line-height: 1.6;
-    color: #fff;
 }
 
 .heart {
     position: fixed;
     top: -20px;
     font-size: 24px;
-    animation-name: fallSpin;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
+    animation: fall linear;
     pointer-events: none;
     z-index: 9999;
-    color: #fff;
 }
 
-
-@keyframes fallSpin {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) rotate(30deg);
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
         opacity: 0;
     }
 }
