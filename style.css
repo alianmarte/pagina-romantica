@@ -68,35 +68,55 @@ body {
     animation-fill-mode: forwards;
 }
 
-@keyframes fallSpinRight {
+/* Queda reta para baixo */
+@keyframes fallStraight {
     0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) translateX(0) rotate(0deg);
         opacity: 1;
     }
     100% {
-        transform: translateY(100vh) rotate(30deg);
+        transform: translateY(100vh) translateX(0) rotate(0deg);
         opacity: 0;
     }
 }
 
-@keyframes fallSpinLeft {
+/* Queda inclinada para a direita */
+@keyframes fallRight {
     0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) translateX(0) rotate(0deg);
         opacity: 1;
     }
     100% {
-        transform: translateY(100vh) rotate(-30deg);
+        transform: translateY(100vh) translateX(30vw) rotate(30deg);
         opacity: 0;
     }
+}
+
+/* Queda inclinada para a esquerda */
+@keyframes fallLeft {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(-30vw) rotate(-30deg);
+        opacity: 0;
+    }
+}
+
+/* Classes para cada animação */
+.heart.straight {
+    animation-name: fallStraight;
 }
 
 .heart.right {
-    animation-name: fallSpinRight;
+    animation-name: fallRight;
 }
 
 .heart.left {
-    animation-name: fallSpinLeft;
+    animation-name: fallLeft;
 }
+
 
 
 
