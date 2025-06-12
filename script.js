@@ -14,7 +14,8 @@ function updateTimer() {
     const days = (daysTotal % 365) % 30;
 
     document.getElementById("timer").innerText =
-        ${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos;
+    `${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+
 }
 
 setInterval(updateTimer, 1000);
