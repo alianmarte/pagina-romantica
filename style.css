@@ -8,13 +8,22 @@ body {
 }
 
 .player {
-    background: rgba(0, 0, 0, 0.7); /* preto transparente */
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
     padding: 15px;
     display: flex;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column; /* muda de linha */
+    align-items: center; /* centraliza horizontalmente */
+    gap: 8px; /* espaçamento entre nome e player */
 }
+
+.music-info {
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
 
 .player strong {
     color: #fff;
