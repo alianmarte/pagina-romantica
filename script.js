@@ -24,16 +24,6 @@ function updateTimer() {
 
 setInterval(updateTimer, 1000);
 
-setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerText = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 5000);
-}, 300);
-
 const images = [
     "imgs/img1.jpg", "imgs/img2.jpg", "imgs/img3.jpg",
     "imgs/img4.jpg", "imgs/img5.jpg", "imgs/img6.jpg",
@@ -51,3 +41,16 @@ audio.addEventListener("ended", () => {
         audio.play();
     }, 3000);
 });
+
+// Corações caindo do topo (chuva)
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    // Remove após terminar a animação (~tempo da animação + 0.1s)
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
