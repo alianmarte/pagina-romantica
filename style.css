@@ -26,8 +26,8 @@ body {
 }
 
 .carousel img {
-    width: 1080px;
-    height: 1080px;
+    width: 500px;
+    height: 500px;
     object-fit: cover;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
