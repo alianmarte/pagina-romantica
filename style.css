@@ -64,10 +64,12 @@ body {
     animation-name: fallSpin;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
+    animation-iteration-count: 1;
     pointer-events: none;
     z-index: 9999;
     color: #fff;
 }
+
 
 
 @keyframes fallSpin {
@@ -80,6 +82,7 @@ body {
         opacity: 0;
     }
 }
+
 
 
 
