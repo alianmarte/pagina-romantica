@@ -42,23 +42,18 @@ setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
 
-    // Escolhe aleatoriamente a animação
-    const animations = ["straight", "right", "left"];
-    const chosenAnimation = animations[Math.floor(Math.random() * animations.length)];
-    heart.classList.add(chosenAnimation);
-
-    // Posiciona o coração aleatoriamente no eixo horizontal, de 0 a 100vw
-    heart.style.left = Math.random() * 100 + "vw";
-
-    // Define duração aleatória entre 3s e 6s
-    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    const directions = ['left', 'right', 'straight'];
+    const direction = directions[Math.floor(Math.random() * directions.length)];
+    heart.classList.add(direction);
 
     heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
     document.body.appendChild(heart);
 
-    // Remove o coração depois da animação (aqui 6s para garantir)
-    setTimeout(() => heart.remove(), 6000);
+    setTimeout(() => heart.remove(), 5000);
 }, 300);
+
 
 
 
