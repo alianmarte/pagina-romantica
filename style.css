@@ -75,8 +75,8 @@ body {
         opacity: 1;
     }
     100% {
-        /* cai pra baixo e também um pouco pra lado (esquerda ou direita) */
-        transform: translateX(30px) translateY(100vh) rotate(360deg);
+        transform: translateX(calc(30px * var(--direction))) translateY(100vh) rotate(360deg);
         opacity: 0;
     }
 }
+
