@@ -1,123 +1,114 @@
 body {
-    margin: 0;
-    padding: 0;
-    background: #000; /* preto */
-    color: #fff; /* letras brancas */
-    font-family: 'Times New Roman', serif;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+  font-family: 'Times New Roman', serif;
+  overflow-x: hidden;
 }
 
 .player {
-    background: rgba(0, 0, 0, 0.7); /* preto transparente */
-    color: #fff;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .player strong {
-    color: #fff;
+  color: #fff;
 }
 
 .main-text {
-    text-align: center;
-    font-size: 28px;
-    margin: 30px 0;
-    color: #fff;
+  text-align: center;
+  font-size: 28px;
+  margin: 30px 0;
+  color: #fff;
 }
 
 .carousel {
-    text-align: center;
+  text-align: center;
 }
 
 .carousel img {
-    width: 1080px;
-    height: 1080px;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    display: block;
-    margin: 0 auto;
+  width: 600px;
+  height: 600px;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  display: block;
+  margin: 0 auto;
 }
 
 .love-time {
-    text-align: center;
-    font-size: 26px;
-    margin: 30px 0;
-    color: #fff;
+  text-align: center;
+  font-size: 20px;
+  margin: 30px 0;
+  color: #fff;
 }
 
 .custom-text {
-    text-align: center;
-    max-width: 800px;
-    margin: 40px auto;
-    font-size: 24px;
-    line-height: 1.6;
-    color: #fff;
+  text-align: center;
+  max-width: 800px;
+  margin: 40px auto;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #fff;
 }
 
 .heart {
-    position: fixed;
-    top: -20px;
-    font-size: 24px;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    pointer-events: none;
-    z-index: 9999;
-    color: #fff;
+  position: fixed;
+  top: -20px;
+  font-size: 24px;
+  color: #fff;
+  pointer-events: none;
+  z-index: 9999;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
 }
 
-/* Animação caindo girando para a direita e indo para a direita */
-@keyframes fallSpinRight {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(30vw, 100vh) rotate(30deg);
-        opacity: 0;
-    }
+@keyframes fallRight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(30vw, 100vh) rotate(90deg);
+    opacity: 0;
+  }
 }
 
-/* Animação caindo girando para a esquerda e indo para a esquerda */
-@keyframes fallSpinLeft {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-30vw, 100vh) rotate(-30deg);
-        opacity: 0;
-    }
+@keyframes fallLeft {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-30vw, 100vh) rotate(-90deg);
+    opacity: 0;
+  }
 }
 
-/* Animação caindo reto sem girar */
-@keyframes fallSpinStraight {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(0, 100vh) rotate(0deg);
-        opacity: 0;
-    }
+@keyframes fallStraight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 100vh) rotate(0deg);
+    opacity: 0;
+  }
 }
 
-/* Classes que aplicam as animações conforme a direção */
 .heart.right {
-    animation-name: fallSpinRight;
+  animation-name: fallRight;
 }
 
 .heart.left {
-    animation-name: fallSpinLeft;
+  animation-name: fallLeft;
 }
 
 .heart.straight {
-    animation-name: fallSpinStraight;
+  animation-name: fallStraight;
 }
-
-
-
-
-
