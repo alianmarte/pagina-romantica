@@ -42,8 +42,19 @@ setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.innerText = "❤️";
+
+    // posição horizontal aleatória em vw
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+    // duração da animação entre 2s e 5s
+    const duration = 2 + Math.random() * 3;
+    heart.style.animationDuration = duration + "s";
+
+    // direção horizontal aleatória: positiva ou negativa (pra esquerda ou direita)
+    const direction = Math.random() < 0.5 ? -1 : 1;
+    heart.style.setProperty("--direction", direction);
+
     document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 5000);
+
+    setTimeout(() => heart.remove(), duration * 1000);
 }, 300);
