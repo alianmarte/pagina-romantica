@@ -44,7 +44,11 @@ setInterval(() => {
     heart.innerText = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (2 + Math.random() * 3) + "s";
-    // heart.style.transform = rotate(${Math.random() * 30 - 15}deg); // retirar essa linha
+
+    // Gira de forma aleatória para esquerda, direita ou reto
+    const randomAngle = Math.floor(Math.random() * 61) - 30; // entre -30° e +30°
+    heart.style.setProperty("--rotation", `${randomAngle}deg`);
+
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 5000);
 }, 300);
