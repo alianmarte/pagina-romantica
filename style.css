@@ -1,9 +1,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #000;
-    color: #fff;
+    background: #000000; /* página preta */
     font-family: 'Times New Roman', serif;
+    color: white; /* letras brancas */
     overflow-x: hidden;
 }
 
@@ -11,43 +11,42 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    width: 320px;
-    padding: 10px 15px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    z-index: 1000;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.8); /* preto transparente */
+    color: white;
+    padding: 10px 15px;
+    width: 100%;
     box-sizing: border-box;
+    z-index: 1000;
+    font-size: 16px;
+    user-select: none;
 }
 
-.music-info {
-    font-weight: bold;
-    font-size: 14px;
-    white-space: nowrap;
+.music-info strong {
+    margin-right: 15px;
 }
 
 audio {
-    flex-grow: 1;
-    outline: none;
-    filter: invert(1);
+    filter: invert(100%); /* deixa controles do player brancos */
+    width: 180px;
 }
 
 .main-text {
-    margin-top: 80px; /* pra não ficar atrás do player */
     text-align: center;
     font-size: 28px;
+    margin: 70px 0 30px 0; /* espaço considerando player fixo */
 }
 
 .carousel {
-    margin: 30px auto 20px auto;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .carousel img {
-    width: 400px;
-    height: 300px;
+    width: 320px;
+    height: 240px;
     object-fit: cover;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
@@ -56,11 +55,7 @@ audio {
 .love-time {
     text-align: center;
     font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.love-time h2 {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 #timer {
@@ -68,14 +63,13 @@ audio {
 }
 
 .custom-text {
+    text-align: center;
     max-width: 800px;
     margin: 0 auto 40px auto;
     font-size: 18px;
     line-height: 1.6;
-    text-align: center;
 }
 
-/* Hearts falling */
 .heart {
     position: fixed;
     top: -20px;
@@ -83,7 +77,7 @@ audio {
     animation: fall linear;
     pointer-events: none;
     z-index: 9999;
-    color: #fff;
+    color: #ff4d6d;
 }
 
 @keyframes fall {
