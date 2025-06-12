@@ -1,4 +1,3 @@
-// Data inicial do contador: 15/09/2024 21:30:00
 const startDate = new Date("2024-09-15T21:30:00");
 
 function updateTimer() {
@@ -26,31 +25,48 @@ function updateTimer() {
 setInterval(updateTimer, 1000);
 updateTimer();
 
-// Carrossel 3D circular
 const carousel = document.querySelector(".carousel");
 const items = document.querySelectorAll(".carousel-item");
 const itemCount = items.length;
 const angle = 360 / itemCount;
 let currentIndex = 0;
 
-function rotateCarousel() {
-  const rotation = currentIndex * -angle;
-  carousel.style.transform = `translateZ(-288px) rotateY(${rotation}deg)`;
+function setCarouselPositions() {
+  const radius = 350; // distância do centro do círculo para as imagens
 
   items.forEach((item, i) => {
-    item.classList.remove("active");
+    const rotateY = i * angle;
+    item.style.transform = `rotateY(${rotateY}deg) translateZ(${radius}px)`;
+    item.style.transition = "transform 1s ease";
+    item.style.opacity = "0.4";
+    item.style.filter = "blur(3px)";
+  });
+}
+
+function rotateCarousel() {
+  const rotation = currentIndex * -angle;
+  carousel.style.transform = `translateZ(-${350}px) rotateY(${rotation}deg)`;
+  carousel.style.transition = "transform 1s ease";
+
+  items.forEach((item, i) => {
     if (i === currentIndex) {
-      item.classList.add("active");
+      item.style.opacity = "1";
+      item.style.filter = "blur(0)";
+      item.style.zIndex = "10";
+    } else {
+      item.style.opacity = "0.4";
+      item.style.filter = "blur(3px)";
+      item.style.zIndex = "1";
     }
   });
 
   currentIndex = (currentIndex + 1) % itemCount;
 }
 
+setCarouselPositions();
 rotateCarousel();
 setInterval(rotateCarousel, 3000);
 
-// Player loop com delay de 5s após a música acabar
 const audio = document.getElementById("audio");
 audio.addEventListener("ended", () => {
   setTimeout(() => {
