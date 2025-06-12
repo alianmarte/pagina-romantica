@@ -42,12 +42,9 @@ setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
 
-    // Decide aleatoriamente se cai pra esquerda ou direita
-    if (Math.random() < 0.5) {
-        heart.classList.add("left");
-    } else {
-        heart.classList.add("right");
-    }
+    // Escolhe aleatoriamente 'left' ou 'right'
+    const direction = Math.random() < 0.5 ? 'left' : 'right';
+    heart.classList.add(direction);
 
     heart.innerText = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
