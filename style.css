@@ -32,12 +32,15 @@ body {
 }
 
 .carousel img {
-    width: 400px; /* tamanho fixo */
-    height: 300px; /* tamanho fixo */
+    width: 1080px;
+    height: 1080px;
     object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: block;
+    margin: 0 auto;
 }
+
 
 .love-time {
     text-align: center;
