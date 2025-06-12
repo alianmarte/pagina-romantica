@@ -40,18 +40,29 @@ audio.addEventListener("ended", () => {
 // Hearts falling
 setInterval(() => {
   const heart = document.createElement("div");
-  heart.classList.add("heart");
-
-  const directions = ["left", "right", "straight"];
-  const randomDirection = directions[Math.floor(Math.random() * directions.length)];
-  heart.classList.add(randomDirection);
-
+  heart.className = "heart";
   heart.innerText = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (2 + Math.random() * 3) + "s";
 
+  // Posição inicial horizontal
+  const startLeft = Math.random() * 100;
+  heart.style.left = `${startLeft}vw`;
+
+  // Duração da animação (2 a 5 segundos)
+  heart.style.animationDuration = `${2 + Math.random() * 3}s`;
+
+  // Movimento lateral aleatório (-30vw a +30vw)
+  const xMove = (Math.random() * 60 - 30).toFixed(2); // -30 a +30
+  heart.style.setProperty('--x-move', `${xMove}vw`);
+
+  // Rotação aleatória entre -90 e +90 graus
+  const rotation = (Math.random() * 180 - 90).toFixed(2);
+  heart.style.setProperty('--rotation', `${rotation}deg`);
+
+  // Aplica a animação
+  heart.style.animationName = 'fallRandom';
+
+  // Adiciona e remove depois
   document.body.appendChild(heart);
-
   setTimeout(() => heart.remove(), 6000);
 }, 300);
 
