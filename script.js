@@ -1,4 +1,4 @@
-const startDate = new Date("2025-09-15T00:00:00");
+const startDate = new Date("2024-09-15T21:30:00");
 
 function updateTimer() {
     const now = new Date();
@@ -19,6 +19,25 @@ function updateTimer() {
 
 setInterval(updateTimer, 1000);
 
+const images = [
+    "imgs/img1.jpg", "imgs/img2.jpg", "imgs/img3.jpg",
+    "imgs/img4.jpg", "imgs/img5.jpg", "imgs/img6.jpg",
+    "imgs/img7.jpg", "imgs/img8.jpg", "imgs/img9.jpg"
+];
+let current = 0;
+setInterval(() => {
+    current = (current + 1) % images.length;
+    document.getElementById("carousel-img").src = images[current];
+}, 5000); // 5 segundos por foto
+
+const audio = document.getElementById("audio");
+audio.addEventListener("ended", () => {
+    setTimeout(() => {
+        audio.play();
+    }, 3000); // 3 segundos após acabar a música
+});
+
+// Coraçãozinho caindo continua igual
 setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
@@ -28,22 +47,3 @@ setInterval(() => {
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 5000);
 }, 300);
-
-const images = [
-    "imgs/img1.jpg", "imgs/img2.jpg", "imgs/img3.jpg",
-    "imgs/img4.jpg", "imgs/img5.jpg", "imgs/img6.jpg",
-    "imgs/img7.jpg", "imgs/img8.jpg", "imgs/img9.jpg"
-];
-
-let current = 0;
-setInterval(() => {
-    current = (current + 1) % images.length;
-    document.getElementById("carousel-img").src = images[current];
-}, 3000);
-
-const audio = document.getElementById("audio");
-audio.addEventListener("ended", () => {
-    setTimeout(() => {
-        audio.play();
-    }, 5000);
-});
