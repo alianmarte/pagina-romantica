@@ -37,21 +37,19 @@ audio.addEventListener("ended", () => {
     }, 3000); // 3 segundos após acabar a música
 });
 
-// Coraçãozinho caindo continua igual
+// Coraçãozinho caindo continua legal
 setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
-
-    // Escolhe aleatoriamente 'left' ou 'right'
-    const direction = Math.random() < 0.5 ? 'left' : 'right';
+    const direction = Math.random() < 0.5 ? "left" : "right";
     heart.classList.add(direction);
-
     heart.innerText = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (2 + Math.random() * 3) + "s";
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 5000);
 }, 300);
+
 
 
 
