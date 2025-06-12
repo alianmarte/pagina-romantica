@@ -38,8 +38,8 @@
         }
 
         .carousel img {
-            width: 500px;
-            height: 500px;
+            width: 1080px;
+            height: 1080px;
             object-fit: cover;
             border-radius: 15px;
             box-shadow:  0 4px 8px rgba(0,0,0,0.3);
@@ -80,17 +80,15 @@
     </style>
 </head>
 <body>
-   <div class="player">
-    <div class="music-info">
-        <strong>Aliança - Tribalistas</strong>
+    <div class="player">
+        <div class="music-info">
+            <strong>Aliança - Tribalistas</strong>
+        </div>
+        <audio id="audio" controls>
+            <source src="musica.mp3" type="audio/mp3" />
+            Seu navegador não suporta o áudio.
+        </audio>
     </div>
-    <audio id="audio" controls>
-        <source src="musica.mp3" type="audio/mp3" />
-        Seu navegador não suporta o áudio.
-    </audio>
-</div>
-
-
 
     <h1 class="main-text">Eu te amo, meu amor ❤️</h1>
 
@@ -138,7 +136,7 @@
             const days = (daysTotal % 365) % 30;
 
             document.getElementById("timer").innerText =
-                `${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+                ${years} anos, ${months} meses, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos;
         }
 
         setInterval(updateTimer, 1000);
