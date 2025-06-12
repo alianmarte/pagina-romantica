@@ -43,15 +43,12 @@ setInterval(() => {
     heart.className = "heart";
     heart.innerText = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
-
-    const duration = 2 + Math.random() * 3;
-    heart.style.animationDuration = duration + "s";
-
-    // Direção aleatória: 30px ou -30px na variável CSS --x-move
-    const direction = Math.random() < 0.5 ? 30 : -30;
-    heart.style.setProperty("--x-move", direction + "px");
-
+    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+    heart.style.transformOrigin = "center";
+    // Animação CSS para girar e cair inclinados
+    heart.style.animationName = "fallSpin";
     document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), duration * 1000);
+    setTimeout(() => heart.remove(), 5000);
 }, 300);
+
 
