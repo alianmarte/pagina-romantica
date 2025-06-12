@@ -1,94 +1,84 @@
+/* Fundo preto e letras brancas */
 body {
     margin: 0;
     padding: 0;
-    background: #000; /* fundo preto */
-    color: white;
+    background-color: #000;
+    color: #fff;
     font-family: 'Times New Roman', serif;
     overflow-x: hidden;
 }
 
+/* Player preto transparente fixo no topo */
 .player {
-    background: rgba(0, 0, 0, 0.5); /* preto transparente */
-    color: white;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
-}
-
-.music-info {
-    flex-grow: 1;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    z-index: 9999;
+    color: white;
     font-weight: bold;
     font-size: 18px;
 }
 
+/* Remove cor verde do player e controla o áudio */
 audio {
-    background: transparent;
-    outline: none;
+    background: transparent !important;
+    filter: none !important;
 }
 
+/* Texto principal */
 .main-text {
+    margin-top: 70px; /* Para não ficar embaixo do player fixo */
     text-align: center;
     font-size: 28px;
-    margin: 80px 0 30px; /* abaixo do player fixo */
+    font-weight: normal;
 }
 
+/* Carrossel */
 .carousel {
-    width: 80%;
-    max-width: 400px;
-    margin: 0 auto 30px;
+    width: 400px;
+    max-width: 90%;
+    margin: 40px auto;
     overflow: hidden;
     position: relative;
+    height: 250px; /* Ajuste a altura conforme suas imagens */
 }
 
+/* Imagens do carrossel */
 .carousel img {
     width: 100%;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(255,255,255,0.3);
     position: absolute;
     top: 0;
     left: 100%;
     opacity: 0;
-    transition: all 0.6s ease;
+    transition: all 0.7s ease;
 }
 
+/* A imagem ativa aparece, posição inicial */
 .carousel img.active {
     left: 0;
     opacity: 1;
     position: relative;
 }
 
+/* Timer e texto amor */
 .love-time {
     text-align: center;
     font-size: 20px;
-    margin: 30px 0;
+    margin-top: 30px;
 }
 
+/* Texto personalizado */
 .custom-text {
-    text-align: center;
     max-width: 800px;
-    margin: 40px auto;
+    margin: 40px auto 80px auto;
     font-size: 18px;
-    line-height: 1.6;
-}
-
-.heart {
-    position: fixed;
-    top: -20px;
-    font-size: 24px;
-    animation: fall linear;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
+    line-height: 1.5;
+    text-align: center;
 }
