@@ -32,10 +32,10 @@ body {
 }
 
 .carousel img {
-    width: 1080px;
-    height: 1080px;
-    object-fit: contain;
-    background-color: #000; /* fundo preto onde sobrar espaço */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
