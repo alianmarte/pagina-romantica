@@ -43,13 +43,15 @@ setInterval(() => {
   heart.classList.add("heart");
 
   const directions = ["left", "right", "straight"];
-  const direction = directions[Math.floor(Math.random() * directions.length)];
-  heart.classList.add(direction);
+  const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+  heart.classList.add(randomDirection);
 
   heart.innerText = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.animationDuration = (2 + Math.random() * 3) + "s";
 
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 5000);
+
+  setTimeout(() => heart.remove(), 6000);
 }, 300);
+
