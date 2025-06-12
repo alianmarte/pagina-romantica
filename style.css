@@ -2,36 +2,50 @@ body {
     margin: 0;
     padding: 0;
     background: #000;
-    color: white;
+    color: #fff;
     font-family: 'Times New Roman', serif;
     overflow-x: hidden;
 }
 
 .player {
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 20px;
-    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 10px 15px;
+    width: 320px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .music-info {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    user-select: none;
 }
 
 audio {
     width: 100%;
-    max-width: 500px;
-    background: transparent;
+    outline: none;
+    filter: invert(100%) brightness(150%);
+    /* torna o player branco sobre fundo preto/transparente */
 }
 
 .main-text {
+    margin-top: 70px; /* espaço para player fixo */
     text-align: center;
     font-size: 28px;
-    margin: 30px 0;
+    user-select: none;
 }
 
 .carousel {
+    margin: 30px auto 15px;
     text-align: center;
 }
 
@@ -40,9 +54,29 @@ audio {
     max-width: 400px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+    user-select: none;
 }
 
 .love-time {
     text-align: center;
     font-size: 20px;
-    margin: 30p
+    margin-bottom: 5px;
+    user-select: none;
+}
+
+.love-time h2 {
+    margin: 0 0 5px 0;
+}
+
+#timer {
+    font-weight: bold;
+}
+
+.custom-text {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 18px;
+    line-height: 1.5;
+    white-space: pre-line;
+    user-select: none;
+}
